@@ -18,6 +18,12 @@ Fetch the docker image of Meilisearch
 docker pull getmeili/meilisearch:latest
 ```
 
+Install the Strapi plugin for Meilisearch
+
+```bash
+strapi-plugin-meilisearch
+```
+
 Build and launch the app
 
 ```bash
