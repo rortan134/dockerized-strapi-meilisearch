@@ -21,7 +21,7 @@ docker pull getmeili/meilisearch:latest
 Install the Strapi plugin for Meilisearch
 
 ```bash
-strapi-plugin-meilisearch
+yarn add strapi-plugin-meilisearch
 ```
 
 Build and launch the app
