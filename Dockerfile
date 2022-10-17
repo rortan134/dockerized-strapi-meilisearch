@@ -1,13 +1,15 @@
-FROM node:16.15.0 AS build
+FROM node:16
+# Installing libvips-dev for image optimization Compatability (remove if not needed)
+RUN apt-get update && apt-get install libvips-dev -y
 
 WORKDIR /app
 
-COPY ./package.json ./
-COPY ./yarn.lock ./
+COPY ./package*.json ./yarn.lock* ./
+COPY ./.env ./
 
-RUN yarn install --production --network-timeout 600000
+RUN yarn --frozen-lockfile --production --network-timeout 600000
 
-COPY . ./
+COPY . .
 
 ENV NODE_ENV production
 
@@ -15,4 +17,4 @@ RUN yarn build
 
 EXPOSE 1337
 
-CMD ["yarn", "run", "develop"]
+CMD ["yarn", "develop"]
